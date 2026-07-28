@@ -1,73 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="it">
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Lumniel</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>small hours</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <main class="page">
+    <h1 class="site-title">small hours</h1>
 
-<div class="container">
+    <hr class="top-rule" />
 
-    <aside class="left-column">
-<nav class="menu">
+    <nav class="nav" aria-label="Sezioni">
+      <a class="active" href="#articles">articles</a>
+      <a href="#archives">archives</a>
+    </nav>
 
-    <a href="#">
-        <img src="images/home.png">
-    </a>
+    <hr class="top-rule" />
 
-    <a href="#">
-        <img src="images/about.png">
-    </a>
+    <section class="content" id="articles">
+      <div class="list">
+        <article class="post">
+          <span class="date">07.18.15 -</span><a href="#">Track listing for “Look what fear’s done to my body”</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">07.18.15 -</span><a href="#">No more miserable Monday mornings</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">07.13.15 -</span><a href="#">Democracy is Joy</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">06.23.15 -</span><a href="#">“On this midsummer night, Outer England awakes” track listing</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">06.20.15 -</span><a href="#">Jam City – Dream a Garden – a dérive – LONDON – May 1st 2015</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">06.05.15 -</span><a href="#">This place is nowhere, and it’s forever</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">06.04.15 -</span><a href="#">“All the straws we clutched at have burst into flame” - track list</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">05.31.15 -</span><a href="#">Look what fear’s done to my body</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">05.24.15 -</span><a href="#">On this midsummer night, outer England awakes</a>
+        </article>
+        <hr class="item-rule" />
+        <article class="post">
+          <span class="date">05.11.15 -</span><a href="#">Abandon hope (summer is coming)</a>
+        </article>
+      </div>
 
-    <a href="#">
-        <img src="images/interests.png">
-    </a>
+      <div class="footer-nav" aria-label="Navigazione pagine">
+        <a href="#">« Previous Entries</a>
+        <a href="#">Next Page »</a>
+      </div>
+    </section>
 
-    <a href="#">
-        <img src="images/playlist.png">
-    </a>
+    <section class="content" id="archives" hidden>
+      <h2 class="section-title">Archives</h2>
+      <hr class="section-rule" />
+      <div class="spacer"></div>
+      <div class="list">
+        <article class="post"><span class="date">2015 -</span><a href="#">Archive item one</a></article>
+        <hr class="item-rule" />
+        <article class="post"><span class="date">2014 -</span><a href="#">Archive item two</a></article>
+      </div>
+    </section>
 
-    <a href="#">
-        <img src="images/archive.png">
-    </a>
+    <footer class="footer">
+      Copyright © 2025 <a href="#">small hours</a>.
+    </footer>
+  </main>
 
-</nav>
-    </aside>
+  <script>
+    const links = document.querySelectorAll('.nav a');
+    const sections = {
+      articles: document.getElementById('articles'),
+      archives: document.getElementById('archives')
+    };
 
-    <main class="center-column">
-<header>
+    function showSection(id) {
+      Object.entries(sections).forEach(([key, section]) => {
+        section.hidden = key !== id;
+      });
 
-    <img
-        src="images/logo.png"
-        class="logo"
-        alt="Lumniel">
+      links.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
 
-    <p class="welcome">
-        ✦ WELCOME TO MY LITTLE CORNER ✦
-    </p>
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href').replace('#', '');
+        if (sections[id]) {
+          e.preventDefault();
+          showSection(id);
+          history.replaceState(null, '', `#${id}`);
+        }
+      });
+    });
 
-    <p class="intro">
-
-        hi, i'm millie...
-
-    </p>
-
-</header>
-    </main>
-
-    <aside class="right-column">
-
-    </aside>
-
-</div>
-
+    const initial = location.hash.replace('#', '') || 'articles';
+    if (sections[initial]) showSection(initial);
+  </script>
 </body>
 </html>
