@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titolo dell'articolo — small hours</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1 class="site-title"><a href="../index.html">small hours</a></h1>
+
+    <hr class="top-rule" />
+
+    <nav class="nav" aria-label="Sezioni">
+      <a href="../index.html">articles</a>
+      <a href="../index.html#archives">archives</a>
+    </nav>
+
+    <hr class="top-rule" />
+
+    <article class="single-post">
+      <p class="post-date">29.07.26</p>
+
+      <h2 class="post-title">Titolo dell'articolo</h2>
+
+      <div class="post-body">
+        <p>
+          Qui inizia il tuo articolo. Puoi scrivere normalmente usando i paragrafi HTML.
+        </p>
+
+        <p>
+          Puoi aggiungere altri paragrafi, immagini, link e tutto quello che vuoi.
+        </p>
+
+        <img src="../images/nome-immagine.jpg" alt="Descrizione dell'immagine" />
+
+        <p>
+          Puoi anche inserire una playlist Spotify o YouTube usando il codice embed fornito dal servizio.
+        </p>
+      </div>
+
+      <div class="post-back">
+        <a href="../index.html">« Back to articles</a>
+      </div>
+    </article>
+
+    <footer class="footer">
+      Copyright © 2026 <a href="../index.html">small hours</a>.
+    </footer>
+  </main>
+</body>
+</html>
